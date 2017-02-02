@@ -1,0 +1,332 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+@mixin transition($attr, $time) {
+  -webkit-transition: $attr $time;
+     -moz-transition: $attr $time;
+      -ms-transition: $attr $time;
+       -o-transition: $attr $time;
+	      transition: $attr $time;
+}
+
+body {
+    display: none;
+	background: url(../img/bg.jpg);
+    font-family: calibri;
+    color: #333;
+}
+
+main {
+    @include transition(all, 0.43s);
+    display: table;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    margin-left: 25%;
+}
+
+div#noModal {
+    padding: 3%;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+
+    & > div {
+        @include transition(all, 0.43s);
+        background: rgba(255,255,255,.79);
+        padding: 9% 2%;
+        overflow: hidden;
+
+        & > div {
+            @include transition(all, 0.43s);
+        }
+    }
+}
+
+img#logo {
+    @include transition(all, 0.43s);
+    width: 488px;
+    max-width: 70%;
+    margin-bottom: 16px;
+}
+
+a#loginButton, a#registerButton {
+    @include transition(all, 0.43s);
+    display: block;
+    cursor: pointer;
+    width: 61%;
+    margin: 12px auto;
+    background: #555;
+    color: #FFF;
+    padding: 16px 0;
+    font-size: 22px;
+
+    &:hover {
+        opacity: .79;
+    }
+}
+
+a#registerButton {
+    background: #0B665C;
+}
+
+.ng-enter-prepare {
+  opacity: 0;
+}
+
+div#root {
+    height: 119px;
+    &.ng-hide {
+        height: 0px;
+        opacity: 0;
+    }
+}
+
+div#login, div#register {
+    @include transition(all, 0.43s);
+    height: 241px;
+
+    &.ng-hide {
+        height: 0px;
+        opacity: 0;
+    }
+}
+
+div#register {
+    height: 412px;
+}
+
+#login label, #register label {
+    color: #333;
+    font-size: 20px;
+}
+
+#login input, #register input {
+    display: block;
+    width: 70%;
+    margin: 3px auto 12px;
+    padding: 16px 12px;
+    border: none;
+    background: #999;
+    color: #333;
+    font-size: 18px;
+    font-family: calibri;
+}
+
+#login button, #register button {
+    @include transition(all, 0.43s);
+    background: #0B665C;
+    border: none;
+    color: #FFF;
+    padding: 14px;
+    width: calc(70% + 24px);
+    font-size: 20px;
+    font-family: calibri;
+    cursor: pointer;
+
+    &:hover {
+        opacity: .79;
+    }
+}
+
+
+
+div#messages {
+    @include transition(all, 0.43s);
+    background: #064037;
+    border: 1px solid 999;
+    display: block;
+    position: fixed;
+    top: -124px;
+    padding: 34px 16px;
+    z-index: 999999;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.34);
+    left: 35%;
+    width: 30%;
+    text-align: center;
+    opacity: 0.95;
+    color: #FFF;
+    font-size: 22px;
+    display: none;
+}
+
+header {
+    display: none;
+    height: 79px;
+    background: #FFF;
+    top: -79px;
+
+    & #logoHeader {
+        height: 61px;
+        margin-top: 9px;
+        margin-left: 16px;
+    }
+
+    & h1 {
+        padding: 106px 0;
+        color: #FFF;
+        text-align: center;
+        font-size: 61px;
+        font-family: eras ITC;
+    }
+}
+
+div#dashboard {
+    background: #CCC;
+    width: 79%;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+.rows {
+    @include transition(all, 0.43s);
+    display: block;
+    height: 20px;
+    padding: 16px 2%;
+    background: #FFF;
+    margin-bottom: 7px;
+    font-size: 20px;
+    border: 1px solid #AAA;
+    color: #666;
+    cursor: pointer;
+
+    &:hover {
+        background: #0a5445;
+        color: #FFF;
+    }
+    
+    & .col {
+        display: inline-block;
+        float: left;
+
+        &:nth-child(1) {
+            width: 60%;
+            text-align: left;
+        }
+
+        &:nth-child(2) {
+            width: 20%;
+            text-align: left;
+        }
+
+        &:nth-child(3) {
+            width: 16%;
+            text-align: right;
+            color: #434343;
+        }
+    }
+
+    &:hover .col:nth-child(3){
+        color: #FFF;
+    }
+}
+
+.rows.ng-enter, .rows.ng-leave-active {
+    opacity: 0;
+    height: 0;
+    margin-bottom: 0;
+    padding: 0 2%;
+}
+.rows.ng-enter-active {
+    opacity: 1;
+    height: 20px;
+    margin-bottom: 7px;
+    padding: 16px 2%;
+}
+
+
+
+input#textFilter {
+    width: 38%;
+    padding: 16px 1%;
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-family: calibri;
+    color: #EEE;
+    background: #777;
+    border: none;
+}
+
+input#greaterThan, input#lesserThan {
+    width: 16%;
+    font-size: 20px;
+    font-family: calibri;
+    padding: 16px 1%;
+    border: none;
+    margin-left: 1%;
+    color: #333;
+    background: #AAA;
+
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: #888;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: #888;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+      color: #888;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+      color: #888;
+    }
+}
+
+button#btnAddExpense {
+    width: 21%;
+    margin-left: 1%;
+    border: none;
+    background: #0a5445;
+    color: #FFF;
+    padding: 16px 0;
+    font-size: 20px;
+    font-family: calibri;
+    cursor: pointer;
+
+    &:hover {
+        opacity: .79;
+    }
+}
+
+div#addExpense {
+    z-index: 9999;
+    position: fixed;
+    top: 50%;
+    left: 33%;
+    width: 34%;
+    background: #FFF;
+    border: 1px solid #999;
+    height: 520px;
+    margin-top: -261px;
+    display: none;
+    text-align: center;
+}
+
+div#whiteShadow {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 9998;
+    background: rgba(255,255,255,.79);
+    top: 0;
+    display: none;
+}
+
+#addExpense input {
+    display: block;
+    width: 74%;
+    margin: 3px 10% 10px;
+    padding: 12px 3%;
+}
+
+#addExpense h2 {
+    background: #777;
+    color: #FFF;
+    font-size: 25px;
+    padding: 16px 0;
+    margin-bottom: 16px;
+}
